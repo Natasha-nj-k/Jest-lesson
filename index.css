@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif; 
+  background-color: #FFF0DC; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  margin: 0;
+}
+
+div {
+  background: #98FB98	;
+  padding: 10px;
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  width: 300px; 
+  margin-bottom: 15px; 
+}
+
+label{
+  font-weight: bold; 
+  display: block; 
+  margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px; 
+}
+
+button {
+  background-color: #28a745;
+  color: white; 
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; 
+  width: 100%; 
+  font-size: 16px;
+} 
+
+.alert-on-message{
+  display: block;
+}
+
+.alert-off-message{
+  display: none;
+}
