@@ -1,3 +1,5 @@
+
+
 console.log("HTML FORMS")
 
 let details = {
@@ -34,9 +36,10 @@ email.addEventListener("change", (e) => {
   details.email = email
 })
 
+
 phoneNumber.addEventListener("change", (e) => {
     const phone = e.target.value
-    details.phoneNumber = phoneNumber
+    // details.phoneNumber = phoneNumber
     // Using regular expression, validate if the number is a valid kenyan number
     // if it's not, using the alert function, notify the user that the
     // number is not valid
@@ -76,24 +79,53 @@ confirmPassword.addEventListener("change", (e) => {
 
 
 function validatePassword(str1, str2) {
-    // Confirm password and confirm password are the same
-    // return a boolean if the password match
-    if(str1 === str2){
-      return true
-    }
-    else{
-      return false
-    }
+  if(str1 === str2 && str1.length >= 4 && str1 !== "" && str1.length !== 0 && str1.trim().length !==0 && /[A-Z]/.test(str1) && /\d/.test(str1) && /[a-zA-Z]/.test(str1)){
+    return true
+  }
+  else{
+    return false
+  }
 }
+
+function validateNames(firstName, lastName){
+  if(firstName.length <= 4 && lastName.length <= 4){
+    return false
+  }
+  else{
+    return true
+  }
+}
+
+function validateEmail(email){
+  if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    return true
+  }
+  else{
+    return false
+  }
+}
+
+function validatePhoneNumber(number){
+  if(/^(\+254|0|254)(7)\d{8}$/.test(number) && number.length >=10){
+    return true
+  }
+  else{
+    return false
+  }
+}
+
 
 // Style your HTML FORM!!!!
 submitBtn.addEventListener("click", () => {
     const { firstName, lastName, email, password, phoneNumber,
 confirmPassword, agreeTerms} = details
 console.log(details)
-      const isValidated = validatePassword(password, confirmPassword)
+      const isPasswordValidated = validatePassword(password, confirmPassword)
+      const isNamesValidated = validateNames (firstName, lastName)
+      const isPhoneNuberValidated = validatePhoneNumber(phoneNumber)
+      const isEmailValidated = validateEmail(email)
 
-      if(isValidated){
+      if(isPasswordValidated && isEmailValidated && isNamesValidated && isPhoneNuberValidated){
         window.location.href = "/dashboard.html"
       }
       else{
