@@ -132,4 +132,12 @@ console.log(details)
       alertspan.classList.remove("alert-off-message")
       alertspan.classList.add("alert-on-message")
       }
+    
+      const alertmessage = getElementById("alert-password")
+
+      alertmessage.style.display = "block"
+
+      setTimeout(() => {
+        alertmessage.style.display = "none"
+      }, 5000)
 })
